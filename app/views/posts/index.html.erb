@@ -1,1 +1,7 @@
 <h1>TOP</h1>
+<% @posts.each do |a| %>
+  <%= a.id %>
+  <a>.</a>
+  <%= a.content %>
+  </br>
+<% end %>
