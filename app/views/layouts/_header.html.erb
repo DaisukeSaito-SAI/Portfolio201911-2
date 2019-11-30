@@ -1,6 +1,12 @@
 <ul>
+  <% if session[:user_id] %>
+  <% @a = User.find_by(id: session[:user_id]) %>
+<li><%= @a.name %>さん</br>ログイン中</li>
+<li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+  <% else %>
 <li><%= link_to "TOP", "/" %></li>
 <li><%= link_to "投稿", "/posts/new" %></li>
 <li><%= link_to "登録", "/users/new" %></li>
-<li>ログイン</li>
+<li><%= link_to "ログイン", "/login" %></li>
+  <% end %>
 </ul>
