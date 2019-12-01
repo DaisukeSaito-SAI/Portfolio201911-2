@@ -1,7 +1,8 @@
 <h1>TOP</h1>
 <% @posts.each do |a| %>
-  <%= a.id %>
-  <a>.</a>
-  <%= a.content %>
+  <% if b = User.find_by(id: a.user_id) %>
+  <a>「<%= b.name %>」<% else %><%= "ゲスト" %><% end %> さんの投稿</a><br>
+  ・<%= a.content %></br>
+  <%= link_to "詳細", "/posts/#{a.id}" %></br>
   </br>
 <% end %>

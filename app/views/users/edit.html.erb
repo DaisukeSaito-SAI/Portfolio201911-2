@@ -1,6 +1,6 @@
-<h1>登録画面</h1>
+<h1>変更</h1>
 
-    <%= form_for(@user, url: "/users/create",method: :post) do |f| %>
+    <%= form_for(@user, url: "/users/update/#{session[:user_id]}",method: :post) do |f| %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -8,5 +8,5 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
       
-      <%= f.submit "登録" %>
+      <%= f.submit "変更" %>
     <% end %>
