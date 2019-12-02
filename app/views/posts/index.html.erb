@@ -10,7 +10,7 @@
 <div class="post">
   <% if b = User.find_by(id: a.user_id) %>
   <a>「<%= b.name %>」<% else %><%= "ゲスト" %><% end %> さんの投稿</a><br>
-  <div class="mail_post">
+  <div class="main_post">
   <%= a.content %></br>
   </div class></br>
   <%= link_to "詳細", "/posts/#{a.id}" %></br>

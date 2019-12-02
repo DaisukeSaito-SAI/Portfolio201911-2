@@ -2,6 +2,13 @@
 <% if @a = Post.find_by(id: params[:id]) %>
 <a>投稿内容：「</a><%= @a.content %><a>」</a></br>
 <a>投稿時間：</a><%= @a.created_at %></br>
+<% if session[:user_id]%>
+<% if Like.find_by(user_id: session[:user_id], post_id: @a.id) %>
+        <%= link_to("いいね！済み", "/likes/#{@post.id}/destroy", {method: "post"}) %>
+<% else %>
+        <%= link_to("いいね！","/likes/#{@post.id}/create", {method: "post"}) %>
+<% end %>
+<% end %>
 <%= link_to "削除","/posts/destroy/#{@a.id}", method: :delete %>
 <% else %>
 <a>みす</a>
