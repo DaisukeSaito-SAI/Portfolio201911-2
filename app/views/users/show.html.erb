@@ -1,8 +1,7 @@
 <h1>ユーザー情報</h1>
-<%= params[:id] %>
   <% if @a = User.find_by(id: session[:user_id]) %>
-  <li>名前 <%= @a.name %></li>
-  <li>メール <%= @a.email %></li>
+  <p>名前 </br><%= @a.name %></p>
+  <p>メール </br><%= @a.email %></p>
   <%= link_to "変更", "/users/edit/#{session[:user_id]}" %>
   <% else %>
   <a>みす</a>

@@ -1,8 +1,24 @@
 <h1>TOP</h1>
+
+<div class="paginate">
+<%= will_paginate %>
+</div>
+</br>
+
 <% @posts.each do |a| %>
+
+<div class="post">
   <% if b = User.find_by(id: a.user_id) %>
   <a>「<%= b.name %>」<% else %><%= "ゲスト" %><% end %> さんの投稿</a><br>
-  ・<%= a.content %></br>
+  <div class="mail_post">
+  <%= a.content %></br>
+  </div class></br>
   <%= link_to "詳細", "/posts/#{a.id}" %></br>
-  </br>
+</div>
+</br>
+
 <% end %>
+</br>
+<div class="paginate">
+<%= will_paginate %>
+</div>
