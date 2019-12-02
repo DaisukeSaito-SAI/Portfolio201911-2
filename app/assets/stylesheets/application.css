@@ -67,11 +67,12 @@ h1 {
   margin-right: 8px;
 }
 
-.paginate {
+.paginate li {
+  font-size: 11px;
+  float: left;
+  padding: 2.5px;
   list-style: none;
-  border-radius: 25px;/*角丸*/
-  background-color:rgba(255,255,255,0.75);/*背景色*/
-  border: solid 3px #ffaf58;/*線色*/
+  background-color:rgba(255,255,255,0.75);
 }
 
 .footer {
