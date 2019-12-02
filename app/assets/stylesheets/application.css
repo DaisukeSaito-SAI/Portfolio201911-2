@@ -44,6 +44,8 @@ h1 {
 }
 
 .post {
+  margin-top: 10px;
+  margin-bottom: 15px;
   color: #364e96;/*文字色*/
   border: solid 3px #ffaf58;/*線色*/
   padding: 0.5em;/*文字周りの余白*/
@@ -67,6 +69,10 @@ h1 {
   margin-right: 8px;
 }
 
+.paginate{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
 .paginate li {
   font-size: 11px;
   float: left;
