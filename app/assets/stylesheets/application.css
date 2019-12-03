@@ -13,34 +13,49 @@
  *= require_tree .
  *= require_self
  */
-
 .header {
   background-color: #ffaf58;
-  height: 25px;
+  height: 80px;
+  border-radius: 0.5em;/*角丸*/
 }
 
 body {
   background-image: url("/back.jpg");
   background-size: cover;
   background-attachment: fixed;
-  width:820px;
+  margin: 50px;
+    width: 90%;
   
 }
  
 /* menu */
-
 .menu li {
   float: left;
-  padding: 0px 30px;
   list-style: none;
-  
+  width: 23%;
+  font-size: 14px;
+  background-color: #FFD466;
+  text-align:left;
+  margin: 0px 5px 0px 5px;
 }
+.menu a {
+  float: right;
+  width: 90%;
+  font-size: 18px;
+}
+.menu-a a{
+  font-family: 'arial black';
+  letter-spacing: -1px;
+  font-size: 28px;
+}
+
 
 h1 {
     padding: 0.5em;/*文字周りの余白*/
   color: #494949;/*文字色*/
   background: #fffaf4;/*背景色*/
   border-left: solid 5px #ffaf58;/*左線（実線 太さ 色）*/
+  
 }
 
 .post {
@@ -51,6 +66,8 @@ h1 {
   padding: 0.5em;/*文字周りの余白*/
   border-radius: 0.5em;/*角丸*/
   background-color:rgba(255,255,255,0.75);/*背景色*/
+  
+  
 }
 
 .main_post{
@@ -70,13 +87,13 @@ h1 {
 }
 
 .paginate{
-  margin-top: 25px;
+  margin-top: 5px;
   margin-bottom: 25px;
 }
 .paginate li {
-  font-size: 11px;
+  font-size: 16px;
   float: left;
-  padding: 2.5px;
+  padding: 3px;
   list-style: none;
   background-color:rgba(255,255,255,0.75);
 }
@@ -86,7 +103,7 @@ h1 {
   background-color:rgba(255,255,255,0.75);
   font-size: 10px;
 
-  width: 300px;
+  width: 100%;
   height: 35px;
   text-align: center;
 }
@@ -94,4 +111,22 @@ h1 {
 .pic100 img {
   width: 100px;
   height: 100px;
+}
+
+/* sp用レイアウト */
+/* 670px以下で適用 */
+@media(max-width: 670px){
+  
+.menu a {
+  float: right;
+  width: 95%;
+  font-size: 10px;
+}
+  .header {
+  height: 40px;
+}
+  .menu li {
+  width: 20%;
+  }
+  
 }
