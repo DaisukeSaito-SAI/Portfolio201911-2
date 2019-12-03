@@ -5,15 +5,18 @@
 </div>
 </br>
 
-<% @posts.each do |a| %>
+<% @posts.each do |post| %>
 
 <div class="post">
-  <% if b = User.find_by(id: a.user_id) %>
+  <% if b = User.find_by(id: post.user_id) %>
   <a>「<%= b.name %>」<% else %><%= "ゲスト" %><% end %> さんの投稿</a><br>
   <div class="main_post">
-  <%= a.content %></br>
+  <%= post.content %></br>
   </div class></br>
-  <%= link_to "詳細", "/posts/#{a.id}" %></br>
+        <div class="pic100">
+    <%= image_tag post.picture.url if post.picture? %></br>
+        </div>
+  <%= link_to "詳細", "/posts/#{post.id}" %></br>
 </div>
 <% end %>
 <div class="paginate">
