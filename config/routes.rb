@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   
+  post "comments/create/:id" => "comment#create"
+  
   get "users/index" => "users#index"
   
   post "users/relationships/create/:id" => "relationships#create"

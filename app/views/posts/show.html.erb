@@ -1,6 +1,7 @@
 <h1>投稿の詳細ページ</h1>
 <div class="post">
-<% if @a = Post.find_by(id: params[:id]) %>
+<% @a = Post.find_by(id: params[:id]) %>
+<% if @a %>
 <a>投稿内容：「</a><%= @a.content %><a>」</a></br>
 <a>投稿時間：</a><%= @a.created_at %></br>
     <%= image_tag @a.picture.url if @a.picture? %></br>
@@ -12,6 +13,26 @@
 <% end %>
 <% end %>
 <%= link_to "削除","/posts/destroy/#{@a.id}", method: :delete %>
+</br>
+</br>
+コメント</br>
+<% comments = Comment.where(post_id: params[:id]) %>
+<% comments.each do |co| %></br>
+  ☆彡<%= co.comment %>
+<% end %>
+
+</br>
+</br>
+
+    <%= form_tag("/comments/create/#{@a.id}") do %>
+
+      <textarea name="comment"></textarea>
+      <input type="submit" value="コメント投稿" %>
+
+    <% end %></br>
+
+</br>
+</br>
 <% else %>
 <a>みす</a>
 </div>
