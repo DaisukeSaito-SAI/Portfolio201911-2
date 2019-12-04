@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ 
+.users{
+  background-color:rgba(255,255,255,0.75);
+  margin: 5px;
+  border-radius: 0.5em;
+}
+
 .header {
   background-color: #ffaf58;
   height: 80px;
@@ -32,8 +39,8 @@ body {
 .menu li {
   float: left;
   list-style: none;
-  width: 23%;
-  font-size: 14px;
+  width: 18%;
+  font-size: 12px;
   background-color: #FFD466;
   text-align:left;
   margin: 0px 5px 0px 5px;
@@ -41,7 +48,7 @@ body {
 .menu a {
   float: right;
   width: 90%;
-  font-size: 18px;
+  font-size: 14px;
 }
 .menu-a a{
   font-family: 'arial black';
@@ -126,7 +133,7 @@ h1 {
   height: 40px;
 }
   .menu li {
-  width: 20%;
+  width: 17%;
   }
   
 }

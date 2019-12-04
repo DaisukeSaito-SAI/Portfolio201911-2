@@ -1,8 +1,51 @@
+
 <h1>ユーザー情報</h1>
-  <% if @a = User.find_by(id: session[:user_id]) %>
-  <p>名前 </br><%= @a.name %></p>
-  <p>メール </br><%= @a.email %></p>
-  <%= link_to "変更", "/users/edit/#{session[:user_id]}" %>
+  <% if @a = User.find_by(id: params[:id]) %>
+    <div class="users">
+      <p>名前 </br><%= @a.name %></p>
+      <p>メール </br><%= @a.email %></p>
+      
+      <% @b = session[:user_id] %><!-- 自分のidを比較で使えるように@bに入れる -->
+      
+      <% if @a.id == @b %><!-- idが自分と合致しているとき以外はリンク表示しない -->
+      <%= link_to "変更", "/users/edit/#{params[:id]}" %>
+      <% end %>
+          
+          </br>
+          ここは：<%= params[:id] %></br>自分は：<%= session[:user_id] %> 
+          </br>
+          
+          <% if @a.id != @b %><!--自分のフォローボタンは除外-->
+
+<%
+    @a = session[:user_id]
+    @b = params[:id]
+    
+    @c = Relationship.find_by(follower_id: @a,
+                          followed_id: @b)
+%>
+                        
+                          <% if @c %> 
+                          </br>
+                          <%= link_to "フォローやめる", "relationships/destroy/#{@b}", method: :post %>
+                          <% else %>
+                          </br>
+                          
+                            <% if @a.present? %>
+                          <%= link_to "フォローする", "relationships/create/#{@b}", method: :post %>
+                            <% else %>
+                            ゲストはフォローできないよ！
+                            <% end %> 
+                           
+                          <% end %>
+
+          <% else %>
+          </br>
+          <a>自分自身はフォローできないよ！</a>
+
+          <% end %>
+          
   <% else %>
-  <a>みす</a>
-<% end %>
+      <a>みす</a>
+  <% end %>
+    </div>

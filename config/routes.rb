@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   
+  get "users/index" => "users#index"
+  
+  post "users/relationships/create/:id" => "relationships#create"
+  post "users/relationships/destroy/:id" => "relationships#destroy"
+  
+  
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
   
