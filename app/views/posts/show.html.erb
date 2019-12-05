@@ -7,19 +7,34 @@
     <%= image_tag @a.picture.url if @a.picture? %></br>
 <% if session[:user_id]%>
 <% if Like.find_by(user_id: session[:user_id], post_id: @a.id) %>
-        <%= link_to("いいね！済み", "/likes/#{@post.id}/destroy", {method: "post"}) %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn-unlike"></span>
+        <% end %>
 <% else %>
-        <%= link_to("いいね！","/likes/#{@post.id}/create", {method: "post"}) %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn"></span>
+        <% end %>
+        
 <% end %>
 <% end %>
-<%= link_to "削除","/posts/destroy/#{@a.id}", method: :delete %>
+
+        <% @iines = Like.where(post_id: params[:id]) %><% @ha =[] %>
+        </br>いいねの数
+        <% @iines.each do |iine| %>
+        <a><% @ha.push(iine.post_id) %></a>
+        <% end %>
+        <%= @ha.count %>コです。
 </br>
 </br>
 コメント</br>
 <% comments = Comment.where(post_id: params[:id]) %>
-<% comments.each do |co| %></br>
+<% comments.each do |co| %>
+  
+  
   ☆彡<%= co.comment %>
-<% end %>
+  </br>
+  
+  <% end %>
 
 </br>
 </br>
@@ -33,6 +48,7 @@
 
 </br>
 </br>
+<%= link_to "削除","/posts/destroy/#{@a.id}", method: :delete %>
 <% else %>
 <a>みす</a>
 </div>
