@@ -11,9 +11,29 @@
       <%= link_to "変更", "/users/edit/#{params[:id]}" %>
       <% end %>
           
+          
+          <a>～制作中</a></br>
+          
           </br>
           ここは：<%= params[:id] %></br>自分は：<%= session[:user_id] %> 
           </br>
+          
+          <% @fff = Relationship.where(followed_id: params[:id]) %><% @pon = [] %>
+          <% @fff.each do |ff| %>
+          <% @pon.push(ff) %>
+          
+          <% end %>
+          フォロワー<%= @pon.count %>人｜
+          
+                    <% @fff = Relationship.where(follower_id: params[:id]) %><% @pon = [] %>
+          <% @fff.each do |ff| %>
+          <% @pon.push(ff) %>
+          
+          <% end %>
+          フォロー<%= @pon.count %>人
+          
+          
+          </br></br><a>制作中ここまで～</a></br>
           
           <% if @a.id != @b %><!--自分のフォローボタンは除外-->
 
