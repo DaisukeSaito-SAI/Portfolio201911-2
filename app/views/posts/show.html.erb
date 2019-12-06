@@ -26,7 +26,8 @@
         <%= @ha.count %>コです。
 </br>
 </br>
-コメント</br>
+[コメント]
+</br>
 <% comments = Comment.where(post_id: params[:id]) %>
 <% comments.each do |co| %>
   
@@ -36,8 +37,6 @@
   
   <% end %>
 
-</br>
-</br>
 
     <%= form_tag("/comments/create/#{@a.id}") do %>
 
