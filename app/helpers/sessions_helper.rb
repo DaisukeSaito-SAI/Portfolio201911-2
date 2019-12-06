@@ -23,6 +23,11 @@ module SessionsHelper
       end
     end
   end 
+
+  # ユーザーがログインしていればtrue、その他ならfalseを返す
+  def logged_in?
+    !current_user.nil?
+  end
   
   # 永続的セッションを破棄する
   def forget(user)
