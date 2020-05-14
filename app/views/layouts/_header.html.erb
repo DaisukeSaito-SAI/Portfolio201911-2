@@ -3,25 +3,25 @@
 <ul>
   <% if session[:user_id] %>
   <% @a = User.find_by(id: session[:user_id]) %>
-  <div class ="menu-a" >
-<a>【<%= @a.name %>さん ログイン中】</a>
-  </div>
-<li><%= link_to "TOP", "/" %></li>
-<li><%= link_to "投稿", "/posts/new" %></li>
-<li><%= link_to "ユーザー詳細", "/users/#{@a.id}" %></li>
-<li><%= link_to "ユーザー一覧", "/users/index" %></li>
-<li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-  <% else %>
-  <div class ="menu-a" >
 
+<a>【<%= @a.name %>さん ログイン中】</a>
+<ul class="nav">
+<li class="nav-item"><%= link_to "TOP", "/" %></li>
+<li class="nav-item"><%= link_to "投稿", "/posts/new" %></li>
+<li class="nav-item"><%= link_to "ユーザー詳細", "/users/#{@a.id}" %></li>
+<li class="nav-item"><%= link_to "ユーザー一覧", "/users/index" %></li>
+<li class="nav-item"><%= link_to "ログアウト", logout_path, method: :delete %></li>
+</ul>
+  <% else %>
 
 <a>Hello Imaaage!! plzzzzzzzzzzz!!!!</a>
-  </div>
-<li><%= link_to "TOP", "/" %></li>
-<li><%= link_to "投稿", "/posts/new" %></li>
-<li><%= link_to "登録", "/users/new" %></li>
-<li><%= link_to "ユーザー一覧", "/users/index" %></li>
-<li><%= link_to "ログイン", "/login" %></li>
+<ul class="nav">
+<li class="nav-item"><%= link_to "TOP", "/" %></li>
+<li class="nav-item"><%= link_to "投稿", "/posts/new" %></li>
+<li class="nav-item"><%= link_to "登録", "/users/new" %></li>
+<li class="nav-item"><%= link_to "ユーザー一覧", "/users/index" %></li>
+<li class="nav-item"><%= link_to "ログイン", "/login" %></li>
+</ul>
 <% end %>
 
 </ul>
