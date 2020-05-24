@@ -2,9 +2,9 @@
 
     <%= form_for(@post, url: "/posts/create",method: :post) do |f| %>
 
-      <%= f.label :content %>
-      <%= f.text_area :content %></br>
-    <%= f.file_field :picture %></br></br>
-
-      <%= f.submit "投稿" %>
+      <%= f.label :content %></br>
+      <%= f.text_area :content%></br>
+    <%= f.file_field :picture%></br>
+    
+      <%= f.submit "投稿", class: "btn btn-light btn-sm"  %>
     <% end %>
